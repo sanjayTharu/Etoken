@@ -4,8 +4,8 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Citizen,Office_Token
-from .serializers import CitizenSerializer,OfficeTokenSerializer,UserSerializer,LoginSerializer
+from .models import Office_Token
+from .serializers import OfficeTokenSerializer
 import uuid
 from rest_framework.decorators import api_view,renderer_classes
 from rest_framework.response import Response

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Etoken - Login</title>
+  <style>
+    body {
+      background-color: #f1f1f1;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(90deg, #2460b9, #fb5105);
+      background-size: 200% 200%;
+      animation: gradientAnimation 10s ease infinite;
+    }
+
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    #card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card-content {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    #login-form input[type="text"],
+    #login-form input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    #login-form input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #fb5105;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    #login-form input[type="submit"]:hover {
+      background-color: #fb5105;
+    }
+
+    #create-account-wrap {
+      text-align: center;
+    }
+
+    #create-account-wrap a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    #create-account-wrap a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div id="card">
+    <div class="card-content">
+      <h2>Login</h2>
+      <form id="login-form" method="post" action="{% url 'home' %}">
+        {% csrf_token %}
+        <input type="text" id="usename" name="username" placeholder="username" required><i class="validation"><span></span><span></span></i>
+        <p>
+        <input type="password" id="password" name="password" placeholder="********" required><i class="validation"><span></span><span></span></i>
+        </p>
+        <input type="submit" id="login" value="Login">
+        </p>
+      </form>
+      <div id="create-account-wrap">
+        <p>Not a member? <a href="{% url 'register' %}">Create Account</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+<body>
+    This is login page
+</body>
+</html>

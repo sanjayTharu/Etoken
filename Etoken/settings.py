@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'bank',
     'hospital',
     'office',
+    'accounts',
 ]
 
 MIDDLEWARE = [

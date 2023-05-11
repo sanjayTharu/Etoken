@@ -17,4 +17,3 @@ class Hospital_Token(models.Model):
         return f"T{self.id:04d}"
     def __str__(self):
         return f"Token: {self.token_number}"
-    

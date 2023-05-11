@@ -1,6 +1,6 @@
 from django.urls import path,include
 from rest_framework.routers import DefaultRouter
-from .views import token_create,token_list,BankTokenView,generate_token
+from .views import BankTokenView,generate_token
 
 
 app_name='bank'

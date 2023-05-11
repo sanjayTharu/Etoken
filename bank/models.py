@@ -17,3 +17,5 @@ class Bank_Token(models.Model):
     class Meta:
         ordering=['-id'] #Order by descending id
 
+        
+

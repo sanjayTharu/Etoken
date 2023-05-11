@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Etoken - Register</title>
+  <style>
+    body {
+      background-color: #f1f1f1;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(90deg, #2460b9, #fb5105);
+      background-size: 200% 200%;
+      animation: gradientAnimation 10s ease infinite;
+    }
+
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f1f1f1;
+  font-family: Arial, sans-serif;
+}
+
+#register-form-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+#register-form input[type="text"],
+#register-form input[type="email"],
+#register-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+#register-form input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #fb5105;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+#register-form input[type="submit"]:hover {
+  background-color: #fb5105;
+}
+
+#sign-in-wrap {
+  text-align: center;
+}
+
+#sign-in-wrap a {
+  color: #333;
+  text-decoration: none;
+}
+
+#sign-in-wrap a:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+<div id="register-form-wrap">
+  <h2>Register</h2>
+  <form id="register-form" method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <p>
+    <input type="text" id="username" name="username" placeholder="Username" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+    <input type="email" id="email" name="email" placeholder="Email Address" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+    <input type="password" id="password" name="password" placeholder="********" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+    <input type="password" id="confirm-password" name="confirm-password" placeholder="********" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <input type="submit" id="register" value="Register" class="submit-btn">
+    </p>
+  </form>
+  <div id="sign-in-wrap">
+    <p>Already a member? <a href="{% url 'login' %}">Sign In</a></p>
+  </div>
+</div>
+</body>
+</html>

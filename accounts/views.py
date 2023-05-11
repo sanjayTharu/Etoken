@@ -6,12 +6,12 @@ from django.contrib.auth import authenticate,login,logout
 # Create your views here.
 
 
-def register(request):
+def register_page(request):
     if request.method =='POST':
         uname=request.POST.get('username')
         email=request.POST.get('email')
         password=request.POST.get('password')
-        password2=request.POST.get('confirm password')
+        password2=request.POST.get('confirm-password')
 
         print(uname,email,password,password2)
         user=User.objects.filter(username=email)
@@ -31,7 +31,8 @@ def register(request):
 
             messages.info(request,'Account Creates Successfully')
 
-        return redirect('/login/')
+        return redirect('/accounts/login/')
+    return render(request,'accounts/register.html')
     
 
 def login_page(request):
@@ -64,4 +65,4 @@ def logout_page(request):
 
 
 def home(request):
-    return render(request,'account/home.html')
+    return render(request,'accounts/home.html')

@@ -4,8 +4,8 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.models import User
 from rest_framework import viewsets
 from django.shortcuts import render,redirect
-from .models import Customer,Bank_Token
-from .serializers import CustomerSerializer,BankTokenSerializer,UserSerializer,LoginSerializer
+from .models import Bank_Token
+from .serializers import BankTokenSerializer
 from django.views.generic.edit import CreateView
 import uuid
 from rest_framework.decorators import api_view,renderer_classes
@@ -20,7 +20,7 @@ from django.views import View
 
 @api_view(['POST'])
 @renderer_classes([TemplateHTMLRenderer])
-def generate__token(request):
+def generate_token(request):
     bank_name=request.data.get('bank_name')
     if bank_name:
         token_number=uuid.uuid4().hex[:6].upper()

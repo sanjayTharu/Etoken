@@ -26,7 +26,7 @@ def generate_hospital_token(request):
         return Response({'error':'Hospital  name is required'},status=status.HTTP_400_BAD_REQUEST)
     
 class HospitalTokenView(View):
-    template_name='hosppital/dashboard.html'
+    template_name='hospital/dashboard.html'
 
     def get(self,request,*args,**kwargs):
         tokens=Hospital_Token.objects.all().order_by('-created_at')
