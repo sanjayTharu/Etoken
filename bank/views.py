@@ -1,49 +1,95 @@
-from rest_framework import generics,permissions,status
-from rest_framework.response import Response
-from rest_framework_simplejwt.tokens import RefreshToken
-from django.contrib.auth.models import User
-from rest_framework import viewsets
-from django.shortcuts import render,redirect
-from .models import Bank_Token
-from .serializers import BankTokenSerializer
-from django.views.generic.edit import CreateView
-import uuid
-from rest_framework.decorators import api_view,renderer_classes
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.renderers import TemplateHTMLRenderer
-from .models import Bank_Token
+from django.shortcuts import render
 from django.views import View
+from .models import Bank_Token
+import uuid
+from django.core.mail import send_mail
+from django.conf import settings
 
+def bankTokenView(request):
+    return render(request,'bank/bankhome.html')
 
-# Create your views here.
+class ADBLTokenView(View):
+    template_name = 'bank/adbl.html'
 
-@api_view(['POST'])
-@renderer_classes([TemplateHTMLRenderer])
-def generate_token(request):
-    bank_name=request.data.get('bank_name')
-    if bank_name:
-        token_number=uuid.uuid4().hex[:6].upper()
-        token=Bank_Token.objects.create(bank_name=bank_name,token_number=token_number)
-        return Response({'token_number':token.token_number},template_name='token.html')
-    else:
-        return Response({'error':'Bank  name is required'},status=status.HTTP_400_BAD_REQUEST)
-    
-class BankTokenView(View):
-    template_name='bank/dashboard.html'
+    def get(self, request, *args, **kwargs):
+        tokens = Bank_Token.objects.filter(bank_name='adbl').order_by('-created_at')
+        context = {'tokens': tokens}
+        return render(request, self.template_name, context)
 
-    def get(self,request,*args,**kwargs):
-        tokens=Bank_Token.objects.all().order_by('-created_at')
-        context={'tokens':tokens}
-        return render(request,self.template_name,context)
-    
-    def post(self,request,*args,**kwargs):
-        bank_name=request.POST.get('bank_name')
-        if bank_name:
-            token_number=uuid.uuid4().hex[:6].upper()
-            token=Bank_Token.objects.create(bank_name=bank_name,token_number=token_number)
-            tokens=Bank_Token.objects.all().order_by('-created_at')
-            context={'tokens':tokens,'token':token}
-            return render(request,self.template_name,context)
-        else:
-            return Response({'error':'Bank name is required'},status=status.HTTP_400_BAD_REQUEST)
+    def post(self, request, *args, **kwargs):
+        token_number = uuid.uuid4().hex[:6].upper()
+        token = Bank_Token.objects.create(bank_name='adbl', token_number=token_number)
+        tokens = Bank_Token.objects.filter(bank_name='adbl').order_by('-created_at')
+        context = {'tokens': tokens, 'token': token}
+
+        # Send email to the client
+        recipient_email = request.POST.get('email')  # Assuming the email is submitted through a form field
+        subject = 'Your Bank 1 Token Number'
+        message = f"Your token number is: {token_number}"
+        send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [recipient_email])
+
+        return render(request, self.template_name, context)
+class NBBTokenView(View):
+    template_name = 'bank/nbb.html'
+
+    def get(self, request, *args, **kwargs):
+        tokens = Bank_Token.objects.filter(bank_name='nbb').order_by('-created_at')
+        context = {'tokens': tokens}
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        token_number = uuid.uuid4().hex[:6].upper()
+        token = Bank_Token.objects.create(bank_name='nbb', token_number=token_number)
+        tokens = Bank_Token.objects.filter(bank_name='nbb').order_by('-created_at')
+        context = {'tokens': tokens, 'token': token}
+
+        # Send email to the client
+        recipient_email = request.POST.get('email')  # Assuming the email is submitted through a form field
+        subject = 'Your Bank 1 Token Number'
+        message = f"Your token number is: {token_number}"
+        send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [recipient_email])
+
+        return render(request, self.template_name, context)
+class RBBTokenView(View):
+    template_name = 'bank/rbb.html'
+
+    def get(self, request, *args, **kwargs):
+        tokens = Bank_Token.objects.filter(bank_name='rbb').order_by('-created_at')
+        context = {'tokens': tokens}
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        token_number = uuid.uuid4().hex[:6].upper()
+        token = Bank_Token.objects.create(bank_name='rbb', token_number=token_number)
+        tokens = Bank_Token.objects.filter(bank_name='rbb').order_by('-created_at')
+        context = {'tokens': tokens, 'token': token}
+
+        # Send email to the client
+        recipient_email = request.POST.get('email')  # Assuming the email is submitted through a form field
+        subject = 'Your Bank 1 Token Number'
+        message = f"Your token number is: {token_number}"
+        send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [recipient_email])
+
+        return render(request, self.template_name, context)
+
+class SBLTokenView(View):
+    template_name = 'bank/sbl.html'
+
+    def get(self, request, *args, **kwargs):
+        tokens = Bank_Token.objects.filter(bank_name='rbb').order_by('-created_at')
+        context = {'tokens': tokens}
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        token_number = uuid.uuid4().hex[:6].upper()
+        token = Bank_Token.objects.create(bank_name='sbl', token_number=token_number)
+        tokens = Bank_Token.objects.filter(bank_name='sbl').order_by('-created_at')
+        context = {'tokens': tokens, 'token': token}
+
+        # Send email to the client
+        recipient_email = request.POST.get('email')  # Assuming the email is submitted through a form field
+        subject = 'Your Bank 1 Token Number'
+        message = f"Your token number is: {token_number}"
+        send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [recipient_email])
+
+        return render(request, self.template_name, context)

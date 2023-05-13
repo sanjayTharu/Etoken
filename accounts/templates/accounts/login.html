@@ -8,7 +8,7 @@
 </head><!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  
   <title>Etoken - Login</title>
   <style>
     body {
@@ -91,7 +91,7 @@
   <div id="card">
     <div class="card-content">
       <h2>Login</h2>
-      <form id="login-form" method="post" action="{% url 'home' %}">
+      <form id="login-form" method="post" action="{% url 'homepage' %}">
         {% csrf_token %}
         <input type="text" id="usename" name="username" placeholder="username" required><i class="validation"><span></span><span></span></i>
         <p>

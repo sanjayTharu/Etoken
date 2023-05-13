@@ -1,12 +1,11 @@
-from django.urls import path,include
-from rest_framework.routers import DefaultRouter
-from .views import BankTokenView,generate_token
+from django.urls import path
+from .views import NBBTokenView,RBBTokenView,bankTokenView,ADBLTokenView
 
+app_name = 'your_app_name'
 
-app_name='bank'
-
-urlpatterns=[
-    path('generate-token/',generate_token,name='bank_token'),
-    path('dashboard/',BankTokenView.as_view(),name='dashboard'),
-   
+urlpatterns = [
+    path('bank/', bankTokenView, name='bankhome'),
+    path('bank2/', NBBTokenView.as_view(), name='nbbbank'),
+    path('bank3/', RBBTokenView.as_view(), name='rbbbank'),
+    path('bank3/', ADBLTokenView.as_view(), name='adblbank'),
 ]

@@ -16,11 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from accounts import views as v1
+from bank import views as v2
 
 urlpatterns = [
+    path('', v1.index,name='index'),
+    path('about/', v1.about,name='about'),
+    path('contact/', v1.contact,name='contact'),
+    path('bank/bank/',v2.bankTokenView,name='bankhome'),
     path('admin/', admin.site.urls),
     path('',include('accounts.urls')),
-    path('bank_tokens/',include('bank.urls')),
-    path('hospital_tokens/',include('hospital.urls')),
+    path('banktokens/',include('bank.urls'),name='bankhomepage'),
+    path('hospitaltokens/',include('hospital.urls'),name='hospitalpage'),
     path('office_tokens/',include('office.urls')),
 ]

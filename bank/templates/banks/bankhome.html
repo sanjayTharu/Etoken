@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    {% load static %}
+    <title>Banks</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: linear-gradient(to right, #00a8cc, #007c99);
+            animation: gradientAnimation 10s ease infinite alternate;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .container {
+            padding-top: 5rem;
+            margin-bottom: 5rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .h1 {
+            text-align: center;
+            color: #00587a;
+            font-size: 2.5rem;
+            font-weight: bold;
+            padding-top: 2rem;
+        }
+
+        .row {
+            padding: 5rem;
+            justify-content: center;
+        }
+
+        .col-lg-3 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .feature-icon {
+            border-radius: 50%;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .feature-icon img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .btn-outline-dark {
+            border-color: #00587a;
+            color: #00587a;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-dark:hover {
+            background-color: #00587a;
+            color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="h1">Choose Banks</div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="feature-icon">
+                    <img src="{% static 'bank/images/rbl.jpg' %}" alt="Rastriya Banijya Bank">
+                </div>
+                <h5><button type="button" class="btn btn-outline-dark px-5"><a href="{% url 'rbbbank' %}">RASTRIYA BANIJYA BANK</a></button></h5>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="feature-icon">
+                    <img src="{% static 'bank/images/nbl.jpg' %}" alt="Nepal Bank Limited">
+                </div>
+                <h5><button type="button" class="btn btn-outline-dark px-5"><a href="{% url 'nbbbank' %}">NEPAL BANK LIMITED</a></button></h5>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="feature-icon">
+                    <img src="{% static 'bank/images/sbl.png' %}" alt="Siddhartha Bank Limited">
+                </div>
+                <h5><button type="button" class="btn btn-outline-dark px-5"><a href="{% url 'sblbank' %}">SIDD
+                </div>
+                  <div class="col-lg-3">
+                    <div class="feature-icon">
+                        <img src="{% static 'bank/images/adbl.jpg' %}" alt="Agriculture Development Bank Limited">
+                    </div>
+                    <h5><button type="button" class="btn btn-outline-dark px-5"><a href="{% url 'adblbank' %}">AGRICULTURE DEVELOPMENT BANK LIMITED</a></button></h5>
+                </div>
+            </div>
+        
+</div>
+</body>
+</html>        

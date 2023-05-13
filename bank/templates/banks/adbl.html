@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    {% load static %}
+    <title>Agriculture Development Bank Limited</title>
+    <style>
+        body {
+            background-color: #eef3ef;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        body {
+    background: linear-gradient(90deg, #2460b9, #fb5105);
+    background-size: 200% 200%;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+        .online-ticket {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 40px;
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        h4 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        form {
+            text-align: left;
+        }
+
+        form p {
+            margin-bottom: 20px;
+        }
+
+        input[type="date"],
+        input[type="text"],
+        input[type="number"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        fieldset {
+            margin-top: 10px;
+            border: none;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="online-ticket">
+        <h1>Online Token</h1>
+        <h4>Agriculture Development Bank Limited</h4>
+        <form action="">
+            <p>
+                <label for="date">Date of Appointment:</label>
+                <input type="date" name="date" id="date" required>
+            </p>
+            <p>
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" placeholder="Write your fullname..." required>
+            </p>
+            <p>
+                <label for="age">Age:</label>
+                <input type="number" name="age" id="age" placeholder="Write in years" required>
+            </p>
+            <p>
+                <label for="gender">Gender:</label>
+                <fieldset>
+                    <label for="male">Male</label> <input type="radio" name="gender" id="male">
+                    <label for="female">Female</label> <input type="radio" name="gender" id="female">
+                </fieldset>
+                </p>
+            <p>
+                <label for="phonenumber">Phone number:</label>
+                <input type="number" name="phonenumber" id="phonenumber" placeholder="+977" required>
+            </p>
+            <p>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="Write your email..." required>
+            </p>
+            <p>
+            <input type="submit" value="Submit">
+        </p>
+    </form>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>B.P Koirala Memorial Cancer Hospital</title>
+    <style>
+        body {
+            background-image: linear-gradient(rgba(36, 96, 185, 0.9), rgba(251, 81, 5, 0.9)),
+                url("img/bharatpur.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .online-ticket {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 50px;
+            margin: 100px auto;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #2460b9;
+        }
+
+        h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #fb5105;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form p {
+            margin-bottom: 20px;
+        }
+
+        input[type="date"],
+        input[type="text"],
+        input[type="number"],
+        input[type="email"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f8f8f8;
+            color: #333;
+            font-size: 14px;
+        }
+
+        input[type="date"]:focus,
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #2460b9;
+        }
+
+        fieldset {
+            margin-top: 10px;
+            border: none;
+        }
+
+        label {
+            color: #333;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            background-color: #2460b9;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #fb5105;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="online-ticket">
+        <h1>Online Token</h1>
+        <h4>Bharatpur Hospital</h4>
+        <form action="">
+            <p>Date of Appointment: <input type="date" name="date" required></p>
+            <p>Name: <input type="text" name="name" placeholder="Write your fullname..." required></p>
+            <p>Age: <input type="number" name="age" placeholder="Write in years" required></p>
+            <p>Gender:
+                <fieldset>
+                    <label for="male">Male</label>
+                    <input type="radio" name="gender" id="male">
+                    <label for="female">Female</label>
+                    <input type="radio" name="gender" id="female">
+                </fieldset>
+            </p>
+            <p>Phone number: <input type="number" name="phonenumber" placeholder="+977" required></p>
+            <p>Email: <input type="email" name="email" id="email" placeholder="Write your email..." required></p>
+            <p><input type="submit" value="Submit"></p>
+            </form>
+            </div>
+            
+            </body>
+            </html>

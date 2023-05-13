@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
+from django.views import View
 # Create your views here.
 
 
@@ -64,5 +65,23 @@ def logout_page(request):
 
 
 
+
+class HomeView(View):
+    template_name = 'accounts/home.html'
+
+    def get(self, request, *args, **kwargs):
+        context = {}
+        return render(request, self.template_name, context)
+    
+        # return redirect('bank:rbbbank')
+
 def home(request):
-    return render(request,'accounts/home.html')
+    return redirect('bank:rbbbank')
+def index(request):
+    return render(request,'accounts/index.html')
+
+def about(request):
+    return render(request,'accounts/about.html')
+
+def contact(request):
+    return render(request,'accounts/contact.html')
